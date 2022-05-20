@@ -1,0 +1,4 @@
+"/Users/cron/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/221.5080.224/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/cron/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/221.5080.224/CLion.app/Contents/bin/ninja/mac/ninja" -DCMAKE_C_COMPILER=/usr/local/Cellar/gcc/11.3.0/bin/gcc-11 -DCMAKE_CXX_COMPILER=/usr/local/Cellar/gcc/11.3.0/bin/g++-11 -G Ninja -S /Users/cron/ghq/github-reetok99709/reetok99709/atcorder -B /Users/cron/ghq/github-reetok99709/reetok99709/atcorder/cmake-build-debug
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/cron/ghq/github-reetok99709/reetok99709/atcorder/cmake-build-debug
