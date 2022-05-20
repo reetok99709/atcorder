@@ -23,7 +23,30 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(std::string S){
+    map<char, int> times;
+    bool contain_small_char = false;
+    bool contain_big_char = false;
 
+    for (char c : S) {
+        if (times.count(c)==0)
+            times[c]=0;
+        times[c]+=1;
+        if (isupper(c))
+            contain_big_char=true;
+        if (islower(c))
+            contain_small_char=true;
+    }
+
+    if (!contain_big_char || !contain_small_char) {
+        cout << "No" << endl; return;
+    }
+
+    for (pair<char,int> p : times) {
+        if (p.second>1) {
+            cout << "No" << endl; return;
+        }
+    }
+    cout << "Yes" << endl;
 }
 
 int main(){

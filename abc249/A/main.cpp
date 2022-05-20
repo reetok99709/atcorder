@@ -21,7 +21,36 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long A, long long B, long long C, long long D, long long E, long long F, long long X){
+    // 高橋
+    int t_w = floor(X/(A+C));
+    int t_m = X%(A+C);
+    int t_walked = t_w*A*B;
+    if (t_m >= A) {
+        t_walked += A*B;
+    } else {
+        t_walked += B*t_m;
+    }
 
+    // 青木
+    int a_w = floor(X/(D+F));
+    int a_m = X%(D+F);
+    int a_walked = a_w*D*E;
+    if (a_m >= D) {
+        a_walked += D*E;
+    } else {
+        a_walked += E*a_m;
+    }
+
+    debug(t_walked);
+    debug(a_walked);
+
+    if (t_walked > a_walked) {
+        cout << "Takahashi" << endl;
+    } else if (t_walked < a_walked) {
+        cout << "Aoki" << endl;
+    } else {
+        cout << "Draw" << endl;
+    }
 }
 
 int main(){
