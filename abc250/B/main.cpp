@@ -22,7 +22,7 @@ std::string format(const std::string& fmt, Args ... args )
 
 void solve(long long N, long long A, long long B){
     rep(i,A*N) {
-        rep(j, B*N) {a
+        rep(j, B*N) {
             debug(i);
             debug(j);
             ll ii = floor(i/A)+1;
