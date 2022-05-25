@@ -33,7 +33,7 @@ void solve(long long N, std::vector<long long> A, std::vector<long long> B){
         if (std::count(A.begin(), A.end(), b)!=0)
             q++;
     }
-    cout << p << " " << q << endl;
+    cout << p << endl << q << endl;
 }
 
 int main(){
