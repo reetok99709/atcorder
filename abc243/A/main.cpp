@@ -21,6 +21,14 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long V, long long A, long long B, long long C){
+    V = V%(A+B+C);
+    if (V < A) {
+        cout << "F" << endl;
+    } else if (V < A+B) {
+        cout << "M" << endl;
+    } else if (V < A+B+C) {
+        cout << "T" << endl;
+    }
 
 }
 
