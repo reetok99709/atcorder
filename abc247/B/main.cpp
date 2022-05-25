@@ -19,21 +19,62 @@ std::string format(const std::string& fmt, Args ... args )
     size_t len = std::snprintf( nullptr, 0, fmt.c_str(), args ... );
     std::vector<char> buf(len + 1);
     std::snprintf(&buf[0], len + 1, fmt.c_str(), args ... );
-    return std::string(&buf[0], &buf[0] + len);
+    return string(&buf[0], &buf[0] + len);
+}
+
+bool fix(std::vector<std::string> s, std::vector<std::string> t, int& id, map<string,int>& m, map<int,int>& nicks) {
+   string ss = s.at(id);
+   int i = m.at(ss);
+   if (nicks.at(i)==1) {
+       string s_t = t.at(i);
+       if (m.count(s_t)==0) {
+           m[ss] = id;
+           nicks[i] = 2;
+           nicks[id] = 1;
+           return true;
+       } else {
+           if (fix(s,t,i,m,nicks)) {
+               m[ss] = id;
+               nicks[i] = 2;
+               nicks[id] = 1;
+               return true;
+           }
+       }
+   } else if (nicks.at(i)==2) {
+       string s_t = s.at(i);
+       if (m.count(s_t)==0) {
+           m[ss] = id;
+           nicks[i] = 1;
+           nicks[id] = 2;
+           return true;
+       } else {
+           if (fix(s,t,i,m,nicks)) {
+               m[ss] = id;
+               nicks[i] = 1;
+               nicks[id] = 2;
+               return true;
+           }
+       }
+   }
+
 }
 
 void solve(long long N, std::vector<std::string> s, std::vector<std::string> t){
-    map<string,bool> map;
+    map<string,int> m;
+    map<int,int> nicks;
+    vector<int> no_nick;
     rep(i, N) {
         string ss = s.at(i);
         string tt = t.at(i);
 
-        if (map.count(ss)==0) {
-            map[ss] = true;
-        } else if (map.count(tt)==0) {
-            map[tt] = true;
+        if (m.count(ss)==0) {
+            m[ss] = i;
+            nicks[i]=1;
+        } else if (m.count(tt)==0) {
+            m[tt] = i;
+            nicks[i]=2;
         } else {
-            cout << "No" << endl; return;
+            no_nick.push_back(i);
         }
     }
     cout << "Yes" << endl;

@@ -1,4 +1,4 @@
-set(CMAKE_CXX_COMPILER "/usr/local/Cellar/gcc/11.3.0/bin/g++-11")
+set(CMAKE_CXX_COMPILER "/usr/local/bin/g++")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_COMPILER_VERSION "11.3.0")
@@ -24,9 +24,9 @@ set(CMAKE_COMPILER_SYSROOT "/Library/Developer/CommandLineTools/SDKs/MacOSX12.sd
 
 
 set(CMAKE_AR "/usr/bin/ar")
-set(CMAKE_CXX_COMPILER_AR "/usr/local/Cellar/gcc/11.3.0/bin/gcc-ar-11")
+set(CMAKE_CXX_COMPILER_AR "/usr/local/bin/gcc-ar-11")
 set(CMAKE_RANLIB "/usr/bin/ranlib")
-set(CMAKE_CXX_COMPILER_RANLIB "/usr/local/Cellar/gcc/11.3.0/bin/gcc-ranlib-11")
+set(CMAKE_CXX_COMPILER_RANLIB "/usr/local/bin/gcc-ranlib-11")
 set(CMAKE_LINKER "/usr/bin/ld")
 set(CMAKE_MT "")
 set(CMAKE_COMPILER_IS_GNUCXX 1)
@@ -78,7 +78,7 @@ endif()
 set(CMAKE_CXX_SYSROOT_FLAG "-isysroot")
 set(CMAKE_CXX_OSX_DEPLOYMENT_TARGET_FLAG "-mmacosx-version-min=")
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/usr/local/Cellar/gcc/11.3.0/include/c++/11;/usr/local/Cellar/gcc/11.3.0/include/c++/11/x86_64-apple-darwin21;/usr/local/Cellar/gcc/11.3.0/include/c++/11/backward;/usr/local/Cellar/gcc/11.3.0/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include;/usr/local/Cellar/gcc/11.3.0/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include-fixed;/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include;/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/System/Library/Frameworks")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/usr/local/Cellar/gcc/11.3.0_1/include/c++/11;/usr/local/Cellar/gcc/11.3.0_1/include/c++/11/x86_64-apple-darwin21;/usr/local/Cellar/gcc/11.3.0_1/include/c++/11/backward;/usr/local/Cellar/gcc/11.3.0_1/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include;/usr/local/Cellar/gcc/11.3.0_1/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include-fixed;/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include;/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/System/Library/Frameworks")
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;emutls_w;gcc")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/usr/local/Cellar/gcc/11.3.0/lib/gcc/11/gcc/x86_64-apple-darwin21/11;/usr/local/Cellar/gcc/11.3.0/lib/gcc/11/gcc;/usr/local/Cellar/gcc/11.3.0/lib/gcc/11;/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/lib")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/usr/local/Cellar/gcc/11.3.0_1/lib/gcc/11/gcc/x86_64-apple-darwin21/11;/usr/local/Cellar/gcc/11.3.0_1/lib/gcc/11/gcc;/usr/local/Cellar/gcc/11.3.0_1/lib/gcc/11;/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/lib")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/System/Library/Frameworks")
