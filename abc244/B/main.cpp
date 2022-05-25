@@ -20,8 +20,39 @@ std::string format(const std::string& fmt, Args ... args )
     return std::string(&buf[0], &buf[0] + len);
 }
 
-void solve(long long N, std::string T){
+void S(int& x, int& y, int& d) {
+    if (d==0)
+        x++;
+    if (d==1)
+        y--;
+    if (d==2)
+        x--;
+    if (d==3)
+        y++;
+}
 
+void R(int& x, int& y, int& d) {
+    d++;
+    if (d > 3)
+        d-=4;
+}
+
+void solve(long long N, std::string T){
+    int x,y,d;
+    x=0;y=0;d=0;
+    // direction
+    // 0 = 東 x+
+    // 1 = 南 y-
+    // 2 = 西 x-
+    // 3 = 北 y+
+    for (auto c : T){
+        if (c=='S')
+            S(x, y, d);
+        if (c=='R')
+            R(x,y,d);
+    }
+
+    cout << x << " " << y << endl;
 }
 
 int main(){
