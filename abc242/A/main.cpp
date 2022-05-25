@@ -28,7 +28,7 @@ void solve(long long A, long long B, long long C, long long X){
         cout << 0 << endl;
         return;
     } else {
-        cout << C/(B-A) << endl;
+        cout << ((double)C)/(double(B-A)) << endl;
     }
 }
 
