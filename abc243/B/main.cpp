@@ -21,7 +21,19 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long N, std::vector<long long> A, std::vector<long long> B){
-
+    int p,q;
+    p=0;q=0;
+    rep(i, N) {
+        ll a = A.at(i);
+        ll b = B.at(i);
+        if (a==b) {
+            p++;
+            continue;
+        }
+        if (std::count(A.begin(), A.end(), b)!=0)
+            q++;
+    }
+    cout << p << q << endl;
 }
 
 int main(){
