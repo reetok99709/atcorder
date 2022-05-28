@@ -43,9 +43,12 @@ int main(){
     cin >> Q;
     map<ll, ll> S;
     int mode = 0;
+    string trash;
+    getline(cin, trash);
     rep(i,Q) {
         string q;
         getline(cin, q);
+//        cout << "DEBUG: " << q << endl;
         vector<string> query = split_naive(q, ' ');
         if (query[0]=="1") {
             ll x = stoll(query[1]);
@@ -54,16 +57,16 @@ int main(){
             } else {
                 S[x]++;
             }
-        } else if (query[1]=="2") {
+        } else if (query[0]=="2") {
             ll x,c;
             x = stoll(query[1]);
             c = stoll(query[2]);
             if (S[x]<=c) {
-                S[x] = 0;
+                S.erase(x);
             } else {
                 S[x]-=c;
             }
-        } else if (query[2]=="3") {
+        } else if (query[0]=="3") {
             int max = S.rbegin()->first;
             int min = S.begin()->first;
             cout << max-min << endl;
