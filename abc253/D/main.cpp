@@ -48,7 +48,7 @@ void solve(long long N, long long A, long long B){
     ll C = lcm(A,B);
     ll o = floor(N/C);
     ll k = o*(o+1)/2;
-    ans-=k*C;
+    ans+=k*C;
 
     cout << ans << endl;
 }
