@@ -23,7 +23,12 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long a, long long b, long long c){
-
+ll m = (a+c)/2;
+if (b==m) {
+cout << "Yes" << endl;
+} else {
+    cout << "No" << endl;
+}
 }
 
 int main(){
