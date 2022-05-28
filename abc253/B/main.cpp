@@ -21,7 +21,30 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long H, long long W, std::vector<std::string> S){
+    int i = 0;
+    int j = 0;
+    int x1,y1;
+    int x2,y2;
+    for(string s : S) {
+        int k = 0;
+        for (char c : s){
+            if (c=='o') {
+                if (i==0) {
+                    x1 = k;
+                    y1 = j;
+                    i++;
+                } else if (i==1) {
+                    x2 = k;
+                    y2 = j;
+                    i++;
+                }
+            }
+            k++;
+        }
+        j++;
+    }
 
+    cout << abs(x1-x2)+abs(y1-y2) << endl;
 }
 
 int main(){
