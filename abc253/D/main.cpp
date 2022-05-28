@@ -21,7 +21,15 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long N, long long A, long long B){
-
+//    int ans = N*(N+1)/2;
+    int ans = 0;
+    rep(ij, N) {
+        int i = ij+1;
+        if ((i%A)!=0 && (i%B)!=0) {
+            ans+=i;
+        }
+    }
+    cout << ans << endl;
 }
 
 int main(){
