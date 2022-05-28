@@ -20,15 +20,36 @@ std::string format(const std::string& fmt, Args ... args )
     return std::string(&buf[0], &buf[0] + len);
 }
 
-void solve(long long N, long long A, long long B){
-//    int ans = N*(N+1)/2;
-    int ans = 0;
-    rep(ij, N) {
-        int i = ij+1;
-        if ((i%A)!=0 && (i%B)!=0) {
-            ans+=i;
-        }
+int gcd(int a, int b){
+    if(a%b == 0){
+        return b;
+    }else{
+        return gcd(b, a%b);
     }
+}
+int lcm(int a, int b){
+    return a*b / gcd(a, b);
+}
+
+void solve(long long N, long long A, long long B){
+    ll ans = N*(N+1)/2;
+
+    // Aの倍数の和
+    ll n = floor(N/A);
+    ll  i = n*(n+1)/2;
+    ans-=i*A;
+
+    // Bの倍数の和
+    ll m = floor(N/B);
+    ll j = m*(m+1)/2;
+    ans-=j*B;
+
+    // AとBの公倍数の話
+    ll C = lcm(A,B);
+    ll o = floor(N/C);
+    ll k = o*(o+1)/2;
+    ans-=k*C;
+
     cout << ans << endl;
 }
 
