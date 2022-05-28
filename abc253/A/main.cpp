@@ -23,12 +23,14 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long a, long long b, long long c){
-    float m = (a+c)/2;
-    if (b==m) {
-        cout << "Yes" << endl;
+    vector<ll> v = {a,b,c};
+    sort(all(v));
+    if (v[1]==b) {
+        cout << YES << endl;
     } else {
-        cout << "No" << endl;
+        cout << NO << endl;
     }
+
 }
 
 int main(){
