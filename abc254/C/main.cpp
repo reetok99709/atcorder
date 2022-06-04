@@ -23,7 +23,24 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long N, long long K, std::vector<long long> a){
+    vl sorted;
+    copy(all(a), std::back_inserter(sorted));
+    sort(all(sorted));
 
+    if (K*2 >= N) {
+        cout << YES << endl;
+    } else {
+        ll i = K*2-N;
+        ll n = N-K;
+        rep (k, i) {
+            if (a.at(n)!=sorted.at(n)) {
+                cout << NO << endl;
+                return;
+            }
+            n++;
+        }
+        cout << YES << endl;
+    }
 }
 
 int main(){
