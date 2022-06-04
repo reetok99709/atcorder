@@ -27,7 +27,7 @@ void solve(long long N, long long K, std::vector<long long> a){
     copy(all(a), std::back_inserter(sorted));
     sort(all(sorted));
 
-    if (K*2 >= N) {
+    if (K*2 <= N) {
         cout << YES << endl;
     } else {
         ll i = K*2-N;
