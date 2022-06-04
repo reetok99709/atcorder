@@ -21,7 +21,7 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long N){
-    vector<vl> ans = vector<vector<long long>>;
+    vector<vl> ans;
     rep(i, N) {
         ans[i] = vl(i+1);
         rep(j, i+1) {
