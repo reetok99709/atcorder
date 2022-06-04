@@ -52,12 +52,28 @@ bool is_squere(long long N) {
 void solve(long long N){
     int ans = 0;
     rep(ii, N) {
-        rep(jj, N) {
-            ll i = ii+1;
+        ll i = ii+1;
+        rep(jj, i) {
             ll j = jj+1;
-            if (is_squere(i*j)) {
+
+            map<ll, ll> p = prime_factor(i);
+            map<ll, ll> jp = prime_factor(j);
+            for (auto pr : jp) {
+                if (p.count(pr.first)==0) {
+                    p[pr.first] = pr.second;
+                } else {
+                    p[pr.first]+=pr.second;
+                }
+            }
+            ll ret = 1;
+            for (auto pr : p) {
+                ret *= (pr.second + 1);
+            }
+
+            if (ret%2==1) {
                 ans+=1;
             }
+
         }
     }
     cout << ans << endl;
