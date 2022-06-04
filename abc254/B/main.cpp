@@ -21,7 +21,30 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long N){
+    vector<vl> ans = vector<vector<long long>>;
+    rep(i, N) {
+        ans[i] = vl(i+1);
+        rep(j, i+1) {
+            if (j==0||j==i) {
+                ans[i][j] = 1;
+            } else {
+                ans[i][j] = ans[i-1][j-1]+ans[i-1][j];
+            }
+        }
+    }
 
+    for (vl v : ans) {
+        bool flag = false;
+        for (ll i : v) {
+            if (flag) {
+                cout << " ";
+            } else {
+                flag = true;
+            }
+            cout << i;
+        }
+        cout << endl;
+    }
 }
 
 int main(){
