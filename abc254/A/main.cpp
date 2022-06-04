@@ -22,7 +22,7 @@ std::string format(const std::string& fmt, Args ... args )
 
 void solve(long long N){
     string s = to_string(N);
-    cout << s[0] << s[1] << endl;
+    cout << s[1] << s[2] << endl;
 }
 
 int main(){
