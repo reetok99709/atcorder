@@ -29,10 +29,10 @@ bool solve(long long N, long long K, std::vector<long long> a){
 
     vl sorted;
     copy(all(a), back_inserter(sorted));
-    sort(all(sorted));
+    sort(all(sorted),std::greater<int>());
 
     for (auto pr : B)
-        sort(all(pr),std::greater<int>());
+        sort(all(pr));
 
     vl SA(N);
     rep(i, N) {
