@@ -43,6 +43,18 @@ bool solve(long long N, long long K, std::vector<long long> a){
         SA[i] = B[i%K][i/K];
     }
 
+    rep(i, N)
+    cout << a[i] << "";
+    cout << endl;
+    rep(i, N)
+        cout << SA[i] << "";
+    cout << endl;
+    rep(i, N)
+        cout << sorted[i] << "";
+    cout << endl;
+
+
+
     return SA==sorted;
 }
 
