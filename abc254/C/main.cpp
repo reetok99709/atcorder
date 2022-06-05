@@ -31,8 +31,12 @@ bool solve(long long N, long long K, std::vector<long long> a){
     copy(all(a), back_inserter(sorted));
     sort(all(sorted));
 
-    for (auto pr : B)
+    for (auto pr : B) {
+        for (auto v : pr)
+            cout << v << " ";
+        cout << endl;
         sort(all(pr));
+    }
 
     vl SA(N);
     rep(i, N) {
