@@ -30,7 +30,7 @@ bool solve(long long N, long long K, std::vector<long long> a){
         B[i%K].push_back(a.at(i));
     }
 
-    vl sorted = vl(N);
+    vl sorted;
     copy(all(a), back_inserter(sorted));
     sort(all(sorted));
 
