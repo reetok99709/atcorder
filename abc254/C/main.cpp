@@ -24,8 +24,8 @@ std::string format(const std::string& fmt, Args ... args )
 
 bool solve(long long N, long long K, std::vector<long long> a){
     vector<vl> B(K);
-    rep(i, K)
-        B[i] = vl(N/K+1);
+//    rep(i, K)
+//        B[i] = vl(N/K+1);
     rep(i, N) {
         B[i%K].push_back(a.at(i));
     }
