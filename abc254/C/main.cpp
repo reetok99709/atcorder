@@ -29,7 +29,7 @@ bool solve(long long N, long long K, std::vector<long long> a){
 
     vl sorted;
     copy(all(a), back_inserter(sorted));
-    sort(all(sorted),std::greater<int>());
+    sort(all(sorted));
 
     for (auto pr : B)
         sort(all(pr));
@@ -38,6 +38,17 @@ bool solve(long long N, long long K, std::vector<long long> a){
     rep(i, N) {
         SA[i] = B[i%K][i/K];
     }
+
+    rep(i, N)
+    cout << a[i] << " ";
+    cout << endl;
+    rep(i, N)
+        cout << SA[i] << " ";
+    cout << endl;
+    rep(i, N)
+        cout << sorted[i] << " ";
+    cout << endl;
+
 
 
     return SA==sorted;
