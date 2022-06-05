@@ -27,8 +27,11 @@ bool solve(long long N, long long K, std::vector<long long> a){
     rep(i, K)
         B[i] = vl(N/K+1);
     rep(i, N) {
+        cout << a.at(i) << "";
         B[i%K].push_back(a.at(i));
     }
+
+    cout << endl;
 
     vl sorted;
     copy(all(a), back_inserter(sorted));
