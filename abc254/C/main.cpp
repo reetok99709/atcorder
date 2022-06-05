@@ -23,7 +23,7 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 bool solve(long long N, long long K, std::vector<long long> a){
-    vector<vl> B = vector<vl>(K);
+    vector<vl> B(K);
     rep(i, K)
         B[i] = vl(N/K+1);
     rep(i, N) {
@@ -38,7 +38,6 @@ bool solve(long long N, long long K, std::vector<long long> a){
         sort(all(pr));
 
     vl SA(N);
-
     rep(i, N) {
         SA[i] = B[i%K][i/K];
     }
