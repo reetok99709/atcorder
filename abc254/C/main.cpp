@@ -29,7 +29,7 @@ bool solve(long long N, long long K, std::vector<long long> a){
     rep(i, K) {
         vl B = vl((N-i)/K+1);
         for (int j = 0; (i+j*K) <= N; j++)
-            B[j] = a[i+j*K];
+            B[j] = sorted[i+j*K];
         sort(all(B));
         for (int j = 0; (i+j*K) <= N; j++)
             sorted[i+j*K] = B[j];
