@@ -22,25 +22,20 @@ std::string format(const std::string& fmt, Args ... args )
     return std::string(&buf[0], &buf[0] + len);
 }
 
-void solve(long long N, long long K, std::vector<long long> a){
+bool solve(long long N, long long K, std::vector<long long> a){
     vl sorted;
-    copy(all(a), std::back_inserter(sorted));
-    sort(all(sorted));
+    copy(all(a), back_inserter(sorted));
 
-    if (K*2 <= N) {
-        cout << YES << endl;
-    } else {
-        ll i = K*2-N;
-        ll n = N-K;
-        rep (k, i) {
-            if (a.at(n)!=sorted.at(n)) {
-                cout << NO << endl;
-                return;
-            }
-            n++;
-        }
-        cout << YES << endl;
+    rep(i, K) {
+        vl B;
+        for (int j = 0; (i+j*K) <= N; j++)
+            B[j] = a[i+j*K];
+        sort(all(B));
+        for (int j = 0; (i+j*K) <= N; j++)
+            sorted[i+j*K] = B[j];
     }
+
+    return a.size() == sorted.size() && std::equal(a.cbegin(), a.cend(), sorted.cbegin());
 }
 
 int main(){
@@ -52,6 +47,9 @@ int main(){
     for(int i = 0 ; i < N ; i++){
         std::scanf("%lld", &a[i]);
     }
-    solve(N, K, std::move(a));
-    return 0;
+    if (solve(N, K, std::move(a))) {
+        cout << YES << endl;
+    } else {
+        cout << NO << endl;
+    }
 }
