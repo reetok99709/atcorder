@@ -37,7 +37,7 @@ bool solve(long long N, long long K, std::vector<long long> a){
     for (auto pr : B)
         sort(all(pr));
 
-    vl SA = vl(N);
+    vl SA(N);
 
     rep(i, N) {
         SA[i] = B[i%K][i/K];
