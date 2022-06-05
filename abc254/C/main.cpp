@@ -25,14 +25,14 @@ std::string format(const std::string& fmt, Args ... args )
 bool solve(long long N, long long K, std::vector<long long> a){
     vl sorted(N);
     copy(all(a), back_inserter(sorted));
-
+    sort(all(sorted));
     rep(i, K) {
         vl B = vl((N-i)/K+1);
         for (int j = 0; (i+j*K) <= N; j++)
-            B[j] = sorted[i+j*K];
+            B[j] = a[i+j*K];
         sort(all(B));
         for (int j = 0; (i+j*K) <= N; j++)
-            sorted[i+j*K] = B[j];
+            a[i+j*K] = B[j];
     }
 
     return std::equal(a.cbegin(), a.cend(), sorted.cbegin());
