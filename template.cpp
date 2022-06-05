@@ -30,15 +30,26 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 {% if prediction_success %}
+{% if yes_str && no_str %}
+bool solve({{ formal_arguments }}){
+{% else %}
 void solve({{ formal_arguments }}){
-
+{% endif %}
 }
 {% endif %}
 
 int main(){
     {% if prediction_success %}
     {{input_part}}
+    {% if !(yes_str && no_str) %}
     solve({{ actual_arguments }});
+    {% else %}
+    if (solve({{ actual_arguments }})) {
+        cout << YES << endl;
+    } else {
+        cout << NO << endl;
+    }
+    {% endif %}}
     {% else %}
     // Failed to predict input format
     {% endif %}
