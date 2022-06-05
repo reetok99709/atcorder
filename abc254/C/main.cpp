@@ -36,6 +36,10 @@ bool solve(long long N, long long K, std::vector<long long> a){
             cout << v << " ";
         cout << endl;
         sort(all(pr));
+        cout << "------" << endl;
+        for (auto v : pr)
+            cout << v << " ";
+        cout << endl;
     }
 
     vl SA(N);
@@ -44,7 +48,7 @@ bool solve(long long N, long long K, std::vector<long long> a){
     }
 
     rep(i, N)
-    cout << a[i] << " ";
+        cout << a[i] << " ";
     cout << endl;
     rep(i, N)
         cout << SA[i] << " ";
