@@ -30,7 +30,7 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 {% if prediction_success %}
-{% if yes_str && no_str %}
+{% if yes_str and no_str %}
 bool solve({{ formal_arguments }}){
 {% else %}
 void solve({{ formal_arguments }}){
@@ -41,14 +41,14 @@ void solve({{ formal_arguments }}){
 int main(){
     {% if prediction_success %}
     {{input_part}}
-    {% if !(yes_str && no_str) %}
-    solve({{ actual_arguments }});
-    {% else %}
+    {% if yes_str and no_str %}
     if (solve({{ actual_arguments }})) {
         cout << YES << endl;
     } else {
         cout << NO << endl;
     }
+    {% else %}
+    solve({{ actual_arguments }});
     {% endif %}}
     {% else %}
     // Failed to predict input format
