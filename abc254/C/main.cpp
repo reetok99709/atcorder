@@ -23,16 +23,26 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 bool solve(long long N, long long K, std::vector<long long> a){
-    vl sorted(N);
+    vector<vl> B = vector<vl>(K);
+    rep(i, K)
+        B[i] = vl(N/K+1);
+    rep(i, N) {
+        B[i%K].push_back(a.at(i));
+    }
+
+    vl sorted = vl(N);
     copy(all(a), back_inserter(sorted));
     sort(all(sorted));
-    rep(i, K) {
-        vl B = vl((N-i)/K+1);
-        for (int j = 0; (i+j*K) <= N; j++)
-            B[j] = a[i+j*K];
-        sort(all(B));
-        for (int j = 0; (i+j*K) <= N; j++)
-            a[i+j*K] = B[j];
+
+    for (auto pr : B)
+        sort(all(pr));
+
+    map<ll, ll> m;
+    rep(i, N) {
+        if (m.count(i%K)==0)
+            m[i%K] = 0;
+        a[i] = B[i%K][m[i%K]];
+        m[i%K]++;
     }
 
     return std::equal(a.cbegin(), a.cend(), sorted.cbegin());
