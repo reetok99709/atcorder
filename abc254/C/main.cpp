@@ -24,19 +24,8 @@ std::string format(const std::string& fmt, Args ... args )
 
 bool solve(long long N, long long K, std::vector<long long> a){
     vector<vl> B(K);
-//    rep(i, K)
-//        B[i] = vl(N/K+1);
-    rep(i, N) {
+    rep(i, N)
         B[i%K].push_back(a.at(i));
-    }
-
-
-    for (auto pr : B) {
-        for (auto v : pr) {
-            cout << v << " ";
-        }
-        cout << endl;
-    }
 
     vl sorted;
     copy(all(a), back_inserter(sorted));
@@ -46,21 +35,8 @@ bool solve(long long N, long long K, std::vector<long long> a){
         sort(all(pr));
 
     vl SA(N);
-    rep(i, N) {
+    rep(i, N)
         SA[i] = B[i%K][i/K];
-    }
-
-    rep(i, N)
-    cout << a[i] << " ";
-    cout << endl;
-    rep(i, N)
-        cout << SA[i] << " ";
-    cout << endl;
-    rep(i, N)
-        cout << sorted[i] << " ";
-    cout << endl;
-
-
 
     return SA==sorted;
 }
