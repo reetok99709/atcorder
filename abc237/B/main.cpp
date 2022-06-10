@@ -40,7 +40,7 @@ void output_vec(vector<vector<T>> vec) {
 }
 
 void solve(long long H, long long W, std::vector<std::vector<long long>> A){
-    vector<vl> B(H, vl(W));
+    vector<vl> B(W, vl(H));
     rep(i, H) {
         rep(j, W) {
             B[j][i] = A[i][j];
