@@ -23,11 +23,7 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 bool solve(long long n){
-    if (n==2) {
-        return false;
-    } else {
-        return true;
-    }
+    return pow(2, n)>pow(n, 2);
 }
 
 int main(){
