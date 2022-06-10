@@ -23,6 +23,31 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 bool solve(std::string S){
+    int prefix = 0;
+    rep(i, S.size()) {
+        if (S.at(i)=='a') {
+            prefix++;
+        }
+    }
+    int suffix = 0;
+    rep(j, S.size()) {
+        int i = S.size()-j-1;
+        if (S.at(i)=='a') {
+            suffix++;
+        }
+    }
+
+    if (prefix > suffix) {
+        return false;
+    } else if (prefix == suffix) {
+        return true;
+    } else {
+        string str = S.substr(0, S.size()-prefix);
+        string reversed;
+        std::copy(str.begin(), str.end(), back_inserter(reversed));
+        std::reverse(reversed.begin(), reversed.end());
+        return str==reversed;
+    }
 }
 
 int main(){
