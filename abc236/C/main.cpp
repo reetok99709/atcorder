@@ -46,7 +46,7 @@ void output_vec(vector<vector<T>> vec) {
 void solve(long long N, long long M, std::vector<std::string> S, std::vector<std::string> T){
     rep(i, N) {
         string str = S.at(i);
-        if (*std::find(T.begin(), T.end(), str) == str) {
+        if (*std::find(T.begin(), T.end(), str) != str) {
             cout << NO << endl;
         } else {
             cout << YES << endl;
