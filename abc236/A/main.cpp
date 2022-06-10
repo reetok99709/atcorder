@@ -42,6 +42,11 @@ void output_vec(vector<vector<T>> vec) {
 }
 
 void solve(std::string S, long long a, long long b){
+    char tmp;
+    tmp = S.at(a-1);
+    S.at(a-1) = S.at(b-1);
+    S.at(b-1) = tmp;
+    cout << S << endl;
 }
 
 int main(){
