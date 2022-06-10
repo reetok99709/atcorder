@@ -24,7 +24,7 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long X){
-    cout << setscientific(10000) << floor(((double)X)/10) << endl;
+    cout << setscientific(10) << floor(((double)X)/10) << endl;
 }
 
 int main(){
