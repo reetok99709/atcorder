@@ -33,7 +33,7 @@ void solve(long long N, std::vector<long long> A){
 
     rep(i, N-1) {
         cuts.push_back(
-                vec.at(i+1)-vec.at(i)
+                vec.at(i)-vec.at(i+1)
                 );
     }
 
