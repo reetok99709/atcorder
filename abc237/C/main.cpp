@@ -27,6 +27,8 @@ bool solve(std::string S){
     rep(i, S.size()) {
         if (S.at(i)=='a') {
             prefix++;
+        } else {
+            break;
         }
     }
     int suffix = 0;
@@ -34,6 +36,8 @@ bool solve(std::string S){
         int i = S.size()-j-1;
         if (S.at(i)=='a') {
             suffix++;
+        } else {
+            break;
         }
     }
 
