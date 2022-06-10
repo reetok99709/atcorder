@@ -24,7 +24,11 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long X){
-    cout << floor(((double)X)/10) << endl;
+    if (X<0 && X%10!=0) {
+        cout << X / 10 - 1 << endl;
+    } else {
+        cout << X / 10 << endl;
+    }
 }
 
 int main(){
