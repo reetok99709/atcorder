@@ -41,10 +41,9 @@ bool solve(std::string S){
         }
     }
 
-
     if (prefix > suffix) {
         return false;
-    } else if (prefix == suffix) {
+    } else if (prefix == S.size()) {
         return true;
     } else {
         string str = S.substr(prefix, S.size()-suffix-prefix);
