@@ -23,6 +23,8 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 bool solve(long long N){
+    return (N >= pow(2, 31)*-1 && N < pow(2,31));
+
 }
 
 int main(){
