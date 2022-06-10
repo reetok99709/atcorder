@@ -43,7 +43,7 @@ void solve(long long H, long long W, std::vector<std::vector<long long>> A){
     vector<vl> B(H, vl(W));
     rep(i, H) {
         rep(j, W) {
-            B[i][j] = A[i][j];
+            B[j][i] = A[i][j];
         }
     }
     output_vec(B);
