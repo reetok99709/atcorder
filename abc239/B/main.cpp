@@ -21,12 +21,12 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long X){
+    cout << floor(X) << endl;
 }
 
 int main(){
     long long X;
     std::scanf("%lld", &X);
     solve(X);
-}
     return 0;
 }
