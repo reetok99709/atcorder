@@ -22,36 +22,35 @@ std::string format(const std::string& fmt, Args ... args )
     return std::string(&buf[0], &buf[0] + len);
 }
 
-pair<ll, ll> cpair(ll x, ll y, ll xx, ll yy) {
+pair<ll, ll> cpair(ll x, ll y) {
     pair<ll, ll> pair;
-    pair.first = x+xx;
-    pair.second = y+yy;
+    pair.first = x;
+    pair.second = y;
     return pair;
 }
 
-void func(vector<pair<ll,ll>>* vec, vl var ) {
-    ll x = var.at(0);
-    ll y = var.at(1);
-    vec->push_back(cpair(x, y, 2, 1));
-    vec->push_back(cpair(x, y, 1, 2));
-    vec->push_back(cpair(x, y, -2, 1));
-    vec->push_back(cpair(x, y, -1, 2));
-    vec->push_back(cpair(x, y, 2, -1));
-    vec->push_back(cpair(x, y, 1, -2));
-    vec->push_back(cpair(x, y, -2, -1));
-    vec->push_back(cpair(x, y, -1, -2));
-}
-
 bool solve(std::vector<long long> x, std::vector<long long> y){
-    vector<pair<ll, ll>> xs;
-    func(&xs, x);
-    vector<pair<ll, ll>> ys;
-    func(&ys, y);
+    vector<pair<ll, ll>> vec;
+    vec.push_back(cpair(2, 1));
+    vec.push_back(cpair(1, 2));
+    vec.push_back(cpair(-2, 1));
+    vec.push_back(cpair(-1, 2));
+    vec.push_back(cpair(2, -1));
+    vec.push_back(cpair(1, -2));
+    vec.push_back(cpair(-2, -1));
+    vec.push_back(cpair(-1, -2));
 
-    for (auto p : xs) {
-        for (auto p2 : ys) {
-            if (p.first==p2.first&&p.second==p2.second)
-                return true;
+    ll x1,y1,x2,y2;
+    x1 = x.at(0);
+    y1 = x.at(1);
+    x2 = x.at(0);
+    y2 = x.at(1);
+
+
+    for (auto p1: vec) {
+        for (auto p2: vec) {
+            if (x1+p1.first+p2.second==x2 && y1+p1.second+p2.second==y2)
+                return true
         }
     }
     return false;
