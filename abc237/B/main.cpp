@@ -19,8 +19,34 @@ std::string format(const std::string& fmt, Args ... args )
     std::snprintf(&buf[0], len + 1, fmt.c_str(), args ... );
     return std::string(&buf[0], &buf[0] + len);
 }
+template<typename T>
+void output_vec(vector<T> vec) {
+    int size = vec.size();
+    for (int i=0; i < size; i++) {
+        cout << vec.at(i);
+        if (i+1==size) {
+            cout << endl;
+        } else {
+            cout << " ";
+        }
+    }
+}
+template<typename T>
+void output_vec(vector<vector<T>> vec) {
+    int size = vec.size();
+    for (int i=0; i < size; i++) {
+        output_vec(vec.at(i));
+    }
+}
 
 void solve(long long H, long long W, std::vector<std::vector<long long>> A){
+    vector<vl> B(H, vl(W));
+    rep(i, H) {
+        rep(j, W) {
+            B[j][i] = A[i][j];
+        }
+    }
+    output_vec(B);
 }
 
 int main(){
