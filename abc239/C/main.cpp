@@ -22,7 +22,39 @@ std::string format(const std::string& fmt, Args ... args )
     return std::string(&buf[0], &buf[0] + len);
 }
 
+pair<ll, ll> cpair(ll x, ll y, ll xx, ll yy) {
+    pair<ll, ll> pair;
+    pair.first = x+xx;
+    pair.second = y+yy;
+    return pair;
+}
+
+void func(vector<pair<ll,ll>>* vec, vl var ) {
+    ll x = var.at(0);
+    ll y = var.at(1);
+    vec->push_back(cpair(x, y, 2, 1));
+    vec->push_back(cpair(x, y, 1, 2));
+    vec->push_back(cpair(x, y, -2, 1));
+    vec->push_back(cpair(x, y, -1, 2));
+    vec->push_back(cpair(x, y, 2, -1));
+    vec->push_back(cpair(x, y, 1, -2));
+    vec->push_back(cpair(x, y, -2, -1));
+    vec->push_back(cpair(x, y, -1, -2));
+}
+
 bool solve(std::vector<long long> x, std::vector<long long> y){
+    vector<pair<ll, ll>> xs;
+    func(&xs, x);
+    vector<pair<ll, ll>> ys;
+    func(&ys, y);
+
+    for (auto p : xs) {
+        for (auto p2 : ys) {
+            if (p.first==p2.first&&p.second==p2.second)
+                return true;
+        }
+    }
+    return false;
 }
 
 int main(){
@@ -37,6 +69,5 @@ int main(){
     } else {
         cout << NO << endl;
     }
-}
     return 0;
 }
