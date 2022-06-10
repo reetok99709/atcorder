@@ -27,7 +27,17 @@ void solve(long long N, std::vector<long long> A){
         current+=A.at(i); current=current%360;
         vec.push_back(current);
     }
-    cout << *std::max_element(vec.begin(), vec.end()) << endl;
+    std::sort(vec.begin(), vec.end());
+
+    vl cuts(N);
+
+    rep(i, N-1) {
+        cuts.push_back(
+                vec.at(i+1)-vec.at(i)
+                );
+    }
+
+    cout << *std::max_element(cuts.begin(), cuts.end()) << endl;
 }
 
 int main(){
