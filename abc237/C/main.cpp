@@ -50,6 +50,7 @@ bool solve(std::string S){
         return true;
     } else {
         string str = S.substr(0, S.size()-prefix);
+        cout << str << endl;
         string reversed;
         std::copy(str.begin(), str.end(), back_inserter(reversed));
         std::reverse(reversed.begin(), reversed.end());
