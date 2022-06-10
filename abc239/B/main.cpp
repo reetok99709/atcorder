@@ -21,7 +21,7 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long X){
-    cout << floor(X) << endl;
+    cout << floor(X*0.0/10) << endl;
 }
 
 int main(){
