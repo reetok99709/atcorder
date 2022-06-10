@@ -21,6 +21,13 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long N, std::vector<long long> A){
+    vl vec(N);
+    ll current = 0;
+    rep(i, N) {
+        current+=A.at(i); current=current%360;
+        vec.push_back(current);
+    }
+    cout << *std::max_element(vec.begin(), vec.end()) << endl;
 }
 
 int main(){
