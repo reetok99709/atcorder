@@ -4,6 +4,9 @@ using namespace std;
 
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 #define all(x) (x).begin(),(x).end()
+#define setfixed(x) std::fixed << std::setprecision(x)
+#define setscientific(x) std::scientific << std::setprecision(x)
+
 using ll = long long;
 using vl = vector<long long>;
 #ifdef _DEBUG
@@ -21,7 +24,7 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long X){
-    cout << floor(((double)X)/10) << endl;
+    cout << setscientific(10000) << floor(((double)X)/10) << endl;
 }
 
 int main(){
