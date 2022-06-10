@@ -43,7 +43,15 @@ void output_vec(vector<vector<T>> vec) {
     }
 }
 
-bool solve(long long N, long long M, std::vector<std::string> S, std::vector<std::string> T){
+void solve(long long N, long long M, std::vector<std::string> S, std::vector<std::string> T){
+    rep(i, N) {
+        string str = S.at(i);
+        if (std::count(T.begin(), T.end(), str)==0) {
+            cout << NO << endl;
+        } else {
+            cout << YES << endl;
+        }
+    }
 }
 
 int main(){
@@ -59,10 +67,6 @@ int main(){
     for(int i = 0 ; i < M ; i++){
         std::cin >> T[i];
     }
-    if (solve(N, M, std::move(S), std::move(T))) {
-        cout << YES << endl;
-    } else {
-        cout << NO << endl;
-    }
+    solve(N, M, std::move(S), std::move(T));
     return 0;
 }
