@@ -22,6 +22,7 @@ std::string format(const std::string& fmt, Args ... args )
 
 void solve(long long N, std::vector<long long> A){
     vl vec;
+    vec.push_back(0);
     ll current = 0;
     rep(i, N) {
         current+=A.at(i); current=current%360;
@@ -36,6 +37,7 @@ void solve(long long N, std::vector<long long> A){
                 vec.at(i+1)-vec.at(i)
                 );
     }
+    cuts.push_back(360-vec.at(vec.size()-1));
 
     cout << *std::max_element(cuts.begin(), cuts.end()) << endl;
 }
