@@ -21,7 +21,7 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 void solve(long long N, std::vector<long long> A){
-    vl vec(N);
+    vl vec;
     ll current = 0;
     rep(i, N) {
         current+=A.at(i); current=current%360;
