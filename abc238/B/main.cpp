@@ -29,11 +29,15 @@ void solve(long long N, std::vector<long long> A){
     }
     std::sort(vec.begin(), vec.end());
 
-    vl cuts(N);
+    vl cuts;
 
-    rep(i, N) {
-        cout << vec.at(i) << " ";
+    rep(i, N-1) {
+        cuts.push_back(
+                vec.at(i+1)-vec.at(i)
+                );
     }
+
+    cout << *std::max_element(cuts.begin(), cuts.end()) << endl;
 }
 
 int main(){
