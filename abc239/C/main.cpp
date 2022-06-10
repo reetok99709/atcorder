@@ -52,6 +52,7 @@ bool solve(std::vector<long long> x, std::vector<long long> y){
                 return true;
         }
     }
+    return false;
 }
 
 int main(){
