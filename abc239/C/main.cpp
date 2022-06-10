@@ -22,50 +22,21 @@ std::string format(const std::string& fmt, Args ... args )
     return std::string(&buf[0], &buf[0] + len);
 }
 
-bool solve(long long N, long long K, std::vector<long long> a){
-    vector<vl> B(K);
-    rep(i, N)
-        B[i%K].push_back(a.at(i));
-
-    vl sorted;
-    copy(all(a), back_inserter(sorted));
-    sort(all(sorted));
-
-    for (auto pr : B)
-        sort(all(pr));
-
-    vl SA(N);
-    rep(i, N) {
-        SA[i] = B[i%K][i/K];
-    }
-
-    rep(i, N)
-        cout << a[i] << " ";
-    cout << endl;
-    rep(i, N)
-        cout << SA[i] << " ";
-    cout << endl;
-    rep(i, N)
-        cout << sorted[i] << " ";
-    cout << endl;
-
-
-
-    return SA==sorted;
+bool solve(std::vector<long long> x, std::vector<long long> y){
 }
 
 int main(){
-    long long N;
-    std::scanf("%lld", &N);
-    long long K;
-    std::scanf("%lld", &K);
-    std::vector<long long> a(N);
-    for(int i = 0 ; i < N ; i++){
-        std::scanf("%lld", &a[i]);
+    std::vector<long long> x(2);
+    std::vector<long long> y(2);
+    for(int i = 0 ; i < 2 ; i++){
+        std::scanf("%lld", &x[i]);
+        std::scanf("%lld", &y[i]);
     }
-    if (solve(N, K, std::move(a))) {
+    if (solve(std::move(x), std::move(y))) {
         cout << YES << endl;
     } else {
         cout << NO << endl;
     }
+}
+    return 0;
 }
