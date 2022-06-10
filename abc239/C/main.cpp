@@ -42,8 +42,8 @@ bool solve(std::vector<long long> x, std::vector<long long> y){
 
     ll x1,y1,x2,y2;
     x1 = x.at(0);
-    y1 = x.at(1);
-    x2 = x.at(0);
+    x2 = x.at(1);
+    y1 = x.at(0);
     y2 = x.at(1);
 
 
