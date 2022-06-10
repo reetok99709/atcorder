@@ -49,7 +49,7 @@ bool solve(std::vector<long long> x, std::vector<long long> y){
 
     for (auto p1: vec) {
         for (auto p2: vec) {
-            if (x1+p1.first+p2.second==x2 && y1+p1.second+p2.second==y2)
+            if (x1+p1.first+p2.first==x2 && y1+p1.second+p2.second==y2)
                 return true;
         }
     }
