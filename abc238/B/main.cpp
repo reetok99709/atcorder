@@ -31,13 +31,9 @@ void solve(long long N, std::vector<long long> A){
 
     vl cuts(N);
 
-    rep(i, N-1) {
-        cuts.push_back(
-                vec.at(i)-vec.at(i+1)
-                );
+    rep(i, N) {
+        cout << vec.at(i) << " ";
     }
-
-    cout << *std::max_element(cuts.begin(), cuts.end()) << endl;
 }
 
 int main(){
