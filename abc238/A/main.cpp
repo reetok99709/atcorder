@@ -23,6 +23,11 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 bool solve(long long n){
+    if (n==1) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 int main(){
