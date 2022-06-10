@@ -42,6 +42,18 @@ void output_vec(vector<vector<T>> vec) {
 }
 
 void solve(long long N, std::vector<long long> A){
+    map<ll, int> map;
+    rep(i, 4*N-1) {
+        if (map.count(A[i])==0)
+            map[A[i]]=0;
+        map[A[i]]++;
+    }
+    for (auto pr: map) {
+        if (pr.second==3) {
+            cout << pr.first << endl;
+            return;
+        }
+    }
 }
 
 int main(){
