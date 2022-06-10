@@ -41,8 +41,6 @@ bool solve(std::string S){
         }
     }
 
-    cout << prefix << endl;
-    cout << suffix << endl;
 
     if (prefix > suffix) {
         return false;
@@ -50,7 +48,6 @@ bool solve(std::string S){
         return true;
     } else {
         string str = S.substr(prefix, S.size()-suffix-prefix);
-        cout << str << endl;
         string reversed;
         std::copy(str.begin(), str.end(), back_inserter(reversed));
         std::reverse(reversed.begin(), reversed.end());
