@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+const long long MOD = 998244353;
 
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 #define all(x) (x).begin(),(x).end()
 #define setfixed(x) std::fixed << std::setprecision(x)
 #define setscientific(x) std::scientific << std::setprecision(x)
-
 using ll = long long;
 using vl = vector<long long>;
 #ifdef _DEBUG
@@ -42,18 +42,18 @@ void output_vec(vector<vector<T>> vec) {
     }
 }
 
-
-void solve(long long X){
-    if (X<0 && X%10!=0) {
-        cout << X / 10 - 1 << endl;
-    } else {
-        cout << X / 10 << endl;
-    }
+void solve(long long N, long long M, std::vector<long long> D){
 }
 
 int main(){
-    long long X;
-    std::scanf("%lld", &X);
-    solve(X);
+    long long N;
+    std::scanf("%lld", &N);
+    long long M;
+    std::scanf("%lld", &M);
+    std::vector<long long> D(N);
+    for(int i = 0 ; i < N ; i++){
+        std::scanf("%lld", &D[i]);
+    }
+    solve(N, M, std::move(D));
     return 0;
 }

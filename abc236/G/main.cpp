@@ -6,7 +6,6 @@ using namespace std;
 #define all(x) (x).begin(),(x).end()
 #define setfixed(x) std::fixed << std::setprecision(x)
 #define setscientific(x) std::scientific << std::setprecision(x)
-
 using ll = long long;
 using vl = vector<long long>;
 #ifdef _DEBUG
@@ -42,18 +41,22 @@ void output_vec(vector<vector<T>> vec) {
     }
 }
 
-
-void solve(long long X){
-    if (X<0 && X%10!=0) {
-        cout << X / 10 - 1 << endl;
-    } else {
-        cout << X / 10 << endl;
-    }
+void solve(long long N, long long T, long long L, std::vector<long long> u, std::vector<long long> v){
 }
 
 int main(){
-    long long X;
-    std::scanf("%lld", &X);
-    solve(X);
+    long long N;
+    std::scanf("%lld", &N);
+    long long T;
+    std::scanf("%lld", &T);
+    long long L;
+    std::scanf("%lld", &L);
+    std::vector<long long> u(T);
+    std::vector<long long> v(T);
+    for(int i = 0 ; i < T ; i++){
+        std::scanf("%lld", &u[i]);
+        std::scanf("%lld", &v[i]);
+    }
+    solve(N, T, L, std::move(u), std::move(v));
     return 0;
 }

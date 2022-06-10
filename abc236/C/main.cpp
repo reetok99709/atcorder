@@ -1,12 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+const string YES = "Yes";
+const string NO = "No";
 
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 #define all(x) (x).begin(),(x).end()
 #define setfixed(x) std::fixed << std::setprecision(x)
 #define setscientific(x) std::scientific << std::setprecision(x)
-
 using ll = long long;
 using vl = vector<long long>;
 #ifdef _DEBUG
@@ -42,18 +43,26 @@ void output_vec(vector<vector<T>> vec) {
     }
 }
 
-
-void solve(long long X){
-    if (X<0 && X%10!=0) {
-        cout << X / 10 - 1 << endl;
-    } else {
-        cout << X / 10 << endl;
-    }
+bool solve(long long N, long long M, std::vector<std::string> S, std::vector<std::string> T){
 }
 
 int main(){
-    long long X;
-    std::scanf("%lld", &X);
-    solve(X);
+    long long N;
+    std::scanf("%lld", &N);
+    long long M;
+    std::scanf("%lld", &M);
+    std::vector<std::string> S(N);
+    for(int i = 0 ; i < N ; i++){
+        std::cin >> S[i];
+    }
+    std::vector<std::string> T(M);
+    for(int i = 0 ; i < M ; i++){
+        std::cin >> T[i];
+    }
+    if (solve(N, M, std::move(S), std::move(T))) {
+        cout << YES << endl;
+    } else {
+        cout << NO << endl;
+    }
     return 0;
 }
