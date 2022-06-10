@@ -23,10 +23,10 @@ std::string format(const std::string& fmt, Args ... args )
 }
 
 bool solve(long long n){
-    if (n<=2) {
-        return true;
-    } else {
+    if (n==2) {
         return false;
+    } else {
+        return true;
     }
 }
 
