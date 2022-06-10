@@ -41,6 +41,9 @@ bool solve(std::string S){
         }
     }
 
+    cout << prefix << endl;
+    cout << suffix << endl;
+
     if (prefix > suffix) {
         return false;
     } else if (prefix == suffix) {
