@@ -48,17 +48,14 @@ void solve(long long X, long long A, long long D, long long N){
     ll min_limit = a1>a2 ? a2 : a1;
     ll max_limit = a1>a2 ? a1 : a2;
 
-    cout << min_limit << endl;
-    cout << max_limit << endl;
-
     ll ans;
     if (X > max_limit) {
         ans = X-max_limit;
     } else if (X < min_limit) {
         ans = min_limit-X;
     } else {
-        ll mul = round((X-A)/D);
-        ll val = A+(mul-1)*D;
+        ll mul = round((X-A)*1.0/D);
+        ll val = A+(mul)*D;
         if (val>X) {
             ans = val-X;
         } else {
