@@ -42,6 +42,7 @@ void output_vec(vector<vector<T>> vec) {
 }
 
 void solve(long long R, long long C, std::vector<std::vector<long long>> A){
+    cout << A[R-1][C-1] << endl;
 }
 
 int main(){
