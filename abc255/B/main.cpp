@@ -41,7 +41,31 @@ void output_vec(vector<vector<T>> vec) {
     }
 }
 
+ll dist(ll x1, ll y1, ll x2, ll y2) {
+    ll x = x1>x2 ? x1-x2 : x2-x1;
+    ll y = y1>y2 ? y1-y2 : y2-y1;
+    return x*x+y*y;
+}
+
 void solve(long long N, long long K, std::vector<long long> A, std::vector<long long> X, std::vector<long long> Y){
+    cout << "-----" << endl;
+    ll ans = 0;
+    rep(i, N) {
+        vector<ll> vec;
+        rep(j, K) {
+            vec.push_back(
+                    dist(X[i], Y[i], X[A[j]-1], Y[A[j]-1])
+                    );
+            cout << i << endl;
+            cout << A[j] << endl;
+            cout << dist(X[i], Y[i], X[A[j]-1], Y[A[j]-1]) << endl;
+        }
+        ll min = *std::min_element(vec.begin(), vec.end());
+        if (ans < min) {
+            ans = min;
+        }
+    }
+    cout << ans << endl;
 }
 
 int main(){
