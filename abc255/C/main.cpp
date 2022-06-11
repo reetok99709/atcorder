@@ -48,6 +48,9 @@ void solve(long long X, long long A, long long D, long long N){
     ll min_limit = a1>a2 ? a2 : a1;
     ll max_limit = a1>a2 ? a1 : a2;
 
+    cout << min_limit << endl;
+    cout << max_limit << endl;
+
     ll ans;
     if (X > max_limit) {
         ans = X-max_limit;
