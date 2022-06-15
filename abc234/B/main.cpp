@@ -44,12 +44,19 @@ template<typename T>
 T diff(T a, T b) {
     return a>b ? a-b : b-a;
 }
-
-ll vec_max(vector<ll> vec) {
+ll max(set<ll> vec) {
     return *std::max_element(vec.begin(), vec.end());
 }
 
-ll vec_min(vector<ll> vec) {
+ll min(set<ll> vec) {
+    return *std::min_element(vec.begin(), vec.end());
+}
+
+ll max(vector<ll> vec) {
+    return *std::max_element(vec.begin(), vec.end());
+}
+
+ll min(vector<ll> vec) {
     return *std::min_element(vec.begin(), vec.end());
 }
 
@@ -61,38 +68,21 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 int main(){
     ll N;
     cin >> N;
-    vl x(N),y(N);
+    vector<pair<ll,ll>> points;
     rep(i, N) {
-        cin >> x[i] >> y[i];
+        ll x,y;
+        cin >> x >> y;
+        points.push_back(make_pair(x,y));
     }
 
-    vector<pair<ll,ll>> ps;
-
-    ll x_min = vec_min(x);
-    ll x_max = vec_max(x);
-    ll y_min = vec_min(y);
-    ll y_max = vec_max(y);
-
-    ps.push_back(make_pair(x_min, y_min));
-    ps.push_back(make_pair(x_min, y_max));
-    ps.push_back(make_pair(x_max, y_min));
-    ps.push_back(make_pair(x_max, y_max));
-
-    vector<ll> dis;
-
-    for (auto p1 : ps) {
-        for ( auto p2 : ps) {
-            cout << p1.first << ", " << p1.second << " " << p1.first << ", " << p2.second << ": " << calc_distance(p1,p2) << endl;
-            dis.push_back(
-                    calc_distance(p1, p2)
-                    );
+    set<ll> dis;
+    for (auto p1:points) {
+        for (auto p2: points) {
+            dis.insert(calc_distance(p1,p2));
         }
     }
 
-    cout << vec_max(dis) << endl;
-
-    cout << setprecision(100) << sqrt(vec_max(dis)) << endl;
-
+    cout << sqrt(max(dis)) << endl;
 
     return 0;
 }
