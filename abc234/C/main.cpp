@@ -43,13 +43,13 @@ void output_vec(vector<vector<T>> vec) {
 
 string toBinary(ll n)
 {
-    ll ans = 0;
-    for (ll i = 0; n>0 ; i++)
-    {
-        ans = ans+(n%2)*pow(10,i);
-        n= n/2;
+    string res;
+    while(n>0){
+        res.push_back('0'+(n%2));
+        n/=2;
     }
-    return to_string(ans);
+    reverse(res.begin(),res.end());
+    return res;
 }
 
 void solve(long long K) {
