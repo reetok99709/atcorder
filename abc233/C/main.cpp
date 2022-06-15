@@ -1,15 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 #define all(x) (x).begin(),(x).end()
@@ -70,29 +61,8 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 }
 
 
-{% if prediction_success %}
-{% if yes_str and no_str %}
-bool solve({{ formal_arguments }}){
-{% else %}
-void solve({{ formal_arguments }}){
-{% endif %}
-}
-{% endif %}
 
 int main(){
-    {% if prediction_success %}
-    {{input_part}}
-    {% if yes_str and no_str %}
-    if (solve({{ actual_arguments }})) {
-        cout << YES << endl;
-    } else {
-        cout << NO << endl;
-    }
-    {% else %}
-    solve({{ actual_arguments }});
-    {% endif %}
-    {% else %}
     // Failed to predict input format
-    {% endif %}
     return 0;
 }

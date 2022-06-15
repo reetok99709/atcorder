@@ -42,6 +42,7 @@ void output_vec(vector<vector<T>> vec) {
 }
 
 void solve(long long abc){
+
 }
 
 int main(){

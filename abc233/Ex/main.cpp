@@ -1,15 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 #define all(x) (x).begin(),(x).end()
@@ -70,29 +61,28 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 }
 
 
-{% if prediction_success %}
-{% if yes_str and no_str %}
-bool solve({{ formal_arguments }}){
-{% else %}
-void solve({{ formal_arguments }}){
-{% endif %}
+void solve(long long N, std::vector<long long> x, std::vector<long long> y, long long Q, std::vector<long long> a, std::vector<long long> b, std::vector<long long> K){
 }
-{% endif %}
 
 int main(){
-    {% if prediction_success %}
-    {{input_part}}
-    {% if yes_str and no_str %}
-    if (solve({{ actual_arguments }})) {
-        cout << YES << endl;
-    } else {
-        cout << NO << endl;
+    long long N;
+    std::scanf("%lld", &N);
+    std::vector<long long> x(N);
+    std::vector<long long> y(N);
+    for(int i = 0 ; i < N ; i++){
+        std::scanf("%lld", &x[i]);
+        std::scanf("%lld", &y[i]);
     }
-    {% else %}
-    solve({{ actual_arguments }});
-    {% endif %}
-    {% else %}
-    // Failed to predict input format
-    {% endif %}
+    long long Q;
+    std::scanf("%lld", &Q);
+    std::vector<long long> a(Q);
+    std::vector<long long> b(Q);
+    std::vector<long long> K(Q);
+    for(int i = 0 ; i < Q ; i++){
+        std::scanf("%lld", &a[i]);
+        std::scanf("%lld", &b[i]);
+        std::scanf("%lld", &K[i]);
+    }
+    solve(N, std::move(x), std::move(y), Q, std::move(a), std::move(b), std::move(K));
     return 0;
 }
