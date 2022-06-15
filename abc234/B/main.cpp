@@ -82,7 +82,7 @@ int main(){
         }
     }
 
-    cout << sqrt(max(dis)) << endl;
+    cout << setprecision(1000) <<  sqrt(max(dis)) << endl;
 
     return 0;
 }
