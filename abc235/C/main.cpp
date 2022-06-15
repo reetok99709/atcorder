@@ -42,6 +42,21 @@ void output_vec(vector<vector<T>> vec) {
 }
 
 void solve(long long N, long long Q, std::vector<long long> a, std::vector<long long> x, std::vector<long long> k){
+    rep(i, Q) {
+        ll X = x.at(i);
+        ll K = k.at(i);
+
+        ll count = 0;
+        for (auto A : a) {
+            if (A==X)
+                count++;
+
+            if (count==K) {
+                cout << i+1 << endl;
+                break;
+            }
+        }
+    }
 }
 
 int main(){
