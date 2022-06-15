@@ -82,6 +82,7 @@ int main(){
 
     for (auto p1 : ps) {
         for ( auto p2 : ps) {
+            cout << p1 << p2 << ": " << calc_distance(p1,p2) << endl;
             dis.push_back(
                     calc_distance(p1, p2)
                     );
