@@ -79,7 +79,7 @@ int main(){
 
     ll a = *std::max_element(ans.begin(), ans.end());
 
-    cout << sqrt(a) << endl;
+    cout << setfixed(20) << sqrt(a) << endl;
 
 
     return 0;
