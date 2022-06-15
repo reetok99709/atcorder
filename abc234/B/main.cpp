@@ -41,6 +41,13 @@ void output_vec(vector<vector<T>> vec) {
     }
 }
 
+ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
+    ll x_distance = p1.first>p2.first ? p1.first-p2.first : p2.first-p1.first;
+    ll y_distance = p1.second>p2.second ? p1.second-p2.second : p2.second-p1.second;
+
+    return x_distance*x_distance+y_distance*y_distance;
+}
+
 
 int main(){
     ll N;
@@ -50,7 +57,30 @@ int main(){
         cin >> x[i] >> y[i];
     }
 
-    output_vec(x);
-    output_vec(y);
+    ll max_x,min_x,max_y,min_y;
+    max_x = *std::max_element(x.begin(), x.end());
+    min_x = *std::min_element(x.begin(), x.end());
+    max_y = *std::max_element(y.begin(), y.end());
+    min_y = *std::min_element(y.begin(), y.end());
+
+
+    vector<pair<ll,ll>> points(4);
+    points.push_back(make_pair(max_x, max_y));
+    points.push_back(make_pair(max_x, min_y));
+    points.push_back(make_pair(min_x, max_y));
+    points.push_back(make_pair(min_x, min_y));
+
+    set<ll> ans;
+    for (auto p1 : points) {
+        for (auto p2 : points) {
+            ans.insert(calc_distance(p1, p2));
+        }
+    }
+
+    ll a = *std::max_element(ans.begin(), ans.end());
+
+    cout << sqrt(a) << endl;
+
+
     return 0;
 }
