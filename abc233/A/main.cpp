@@ -64,7 +64,7 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 void solve(long long X, long long Y){
     ll ans = 0;
     while (true) {
-        if (X > Y)
+        if (X >= Y)
             break;
 
         ans++;
