@@ -45,7 +45,7 @@ void output_vec(vector<vector<T>> vec) {
 int main(){
     ll N;
     cin >> N;
-    vl x,y;
+    vl x(N),y(N);
     rep(i, N) {
         cin >> x[i] >> y[i];
     }
