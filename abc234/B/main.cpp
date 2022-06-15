@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 #define all(x) (x).begin(),(x).end()
 #define setfixed(x) std::fixed << std::setprecision(x)
@@ -41,11 +40,21 @@ void output_vec(vector<vector<T>> vec) {
     }
 }
 
-ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
-    ll x_distance = p1.first>p2.first ? p1.first-p2.first : p2.first-p1.first;
-    ll y_distance = p1.second>p2.second ? p1.second-p2.second : p2.second-p1.second;
+template<typename T>
+T diff(T a, T b) {
+    return a>b ? a-b : b-a;
+}
 
-    return x_distance*x_distance+y_distance*y_distance;
+ll vec_max(vector<ll> vec) {
+    return *std::max_element(vec.begin(), vec.end());
+}
+
+ll vec_min(vector<ll> vec) {
+    return *std::min_element(vec.begin(), vec.end());
+}
+
+ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
+    return pow(diff(p1.first, p2.first), 2)+pow(diff(p1.second, p2.second), 2);
 }
 
 
@@ -57,29 +66,29 @@ int main(){
         cin >> x[i] >> y[i];
     }
 
-    ll max_x,min_x,max_y,min_y;
-    max_x = *std::max_element(x.begin(), x.end());
-    min_x = *std::min_element(x.begin(), x.end());
-    max_y = *std::max_element(y.begin(), y.end());
-    min_y = *std::min_element(y.begin(), y.end());
+    vector<pair<ll,ll>> ps;
 
+    ll x_min = vec_min(x);
+    ll x_max = vec_max(x);
+    ll y_min = vec_min(y);
+    ll y_max = vec_max(y);
 
-    vector<pair<ll,ll>> points(4);
-    points.push_back(make_pair(max_x, max_y));
-    points.push_back(make_pair(max_x, min_y));
-    points.push_back(make_pair(min_x, max_y));
-    points.push_back(make_pair(min_x, min_y));
+    ps.push_back(make_pair(x_min, y_min));
+    ps.push_back(make_pair(x_min, y_max));
+    ps.push_back(make_pair(x_max, y_min));
+    ps.push_back(make_pair(x_max, y_max));
 
-    set<ll> ans;
-    for (auto p1 : points) {
-        for (auto p2 : points) {
-            ans.insert(calc_distance(p1, p2));
+    vector<ll> dis;
+
+    for (auto p1 : ps) {
+        for ( auto p2 : ps) {
+            dis.push_back(
+                    calc_distance(p1, p2)
+                    );
         }
     }
 
-    ll a = *std::max_element(ans.begin(), ans.end());
-
-    cout << setfixed(20) << sqrt(a) << endl;
+    cout << sqrt(vec_max(dis)) << endl;
 
 
     return 0;
