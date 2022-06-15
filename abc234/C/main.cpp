@@ -52,7 +52,9 @@ string toBinary(ll n)
 }
 
 void solve(long long K) {
-    cout << regex_replace(toBinary(K), regex("1"), "2") << endl;
+    string s = toBinary(K);
+    replace(all(s), '1', '2');
+    cout << s << endl;
 }
 
 int main(){
