@@ -41,45 +41,24 @@ void output_vec(vector<vector<T>> vec) {
     }
 }
 
-void solve(long long X, long long A, long long D, long long N){
-    ll a1, a2;
-    a1 = A+(N-1)*D;
-    a2 = A;
-    ll min_limit = a1>a2 ? a2 : a1;
-    ll max_limit = a1>a2 ? a1 : a2;
-
-    ll ans;
-    if (X > max_limit) {
-        ans = X-max_limit;
-    } else if (X < min_limit) {
-        ans = min_limit - X;
-    } else if (D == 0) {
-        if (A>X) {
-            ans = A-X;
-        } else {
-            ans = X-A;
-        }
-    } else {
-        ll mul = round((X-A)*1.0/D);
-        ll val = A+(mul)*D;
-        if (val>X) {
-            ans = val-X;
-        } else {
-            ans = X-val;
-        }
-    }
-    cout << ans << endl;
+void solve(long long N, long long Q, std::vector<long long> a, std::vector<long long> x, std::vector<long long> k){
 }
 
 int main(){
-    long long X;
-    std::scanf("%lld", &X);
-    long long A;
-    std::scanf("%lld", &A);
-    long long D;
-    std::scanf("%lld", &D);
     long long N;
     std::scanf("%lld", &N);
-    solve(X, A, D, N);
+    long long Q;
+    std::scanf("%lld", &Q);
+    std::vector<long long> a(N);
+    for(int i = 0 ; i < N ; i++){
+        std::scanf("%lld", &a[i]);
+    }
+    std::vector<long long> x(Q);
+    std::vector<long long> k(Q);
+    for(int i = 0 ; i < Q ; i++){
+        std::scanf("%lld", &x[i]);
+        std::scanf("%lld", &k[i]);
+    }
+    solve(N, Q, std::move(a), std::move(x), std::move(k));
     return 0;
 }
