@@ -47,12 +47,13 @@ void solve(long long N, long long Q, std::vector<long long> a, std::vector<long 
         ll K = k.at(i);
 
         ll count = 0;
-        for (auto A : a) {
+        rep(j, N) {
+            ll A = a.at(j);
             if (A==X)
                 count++;
 
             if (count==K) {
-                cout << i+1 << endl;
+                cout << j+1 << endl;
                 break;
             }
         }
