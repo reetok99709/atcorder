@@ -47,6 +47,7 @@ void solve(long long N, long long Q, std::vector<long long> a, std::vector<long 
         ll K = k.at(i);
 
         ll count = 0;
+        bool ans = false;
         rep(j, N) {
             ll A = a.at(j);
             if (A==X)
@@ -54,9 +55,13 @@ void solve(long long N, long long Q, std::vector<long long> a, std::vector<long 
 
             if (count==K) {
                 cout << j+1 << endl;
+                ans = true;
                 break;
             }
         }
+        if (!ans)
+            cout << -1 << endl;
+
     }
 }
 
