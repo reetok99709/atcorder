@@ -43,8 +43,8 @@ void output_vec(vector<vector<T>> vec) {
 
 string toBinary(ll n)
 {
-    int ans = 0;
-    for (int i = 0; n>0 ; i++)
+    ll ans = 0;
+    for (ll i = 0; n>0 ; i++)
     {
         ans = ans+(n%2)*pow(10,i);
         n= n/2;
