@@ -89,6 +89,8 @@ int main(){
         }
     }
 
+    cout << vec_max(dis) << endl;
+
     cout << setprecision(100) << sqrt(vec_max(dis)) << endl;
 
 
