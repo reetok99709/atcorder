@@ -84,6 +84,7 @@ void solve(long long N, std::vector<long long> L, std::vector<long long> R){
     set<pair<ll,ll>> p;
     rep(i, N) {
         auto p1 = make_pair(L[i], R[i]);
+        p.insert(p1);
         remove_dup(p);
     }
     for (auto pr : p) {
