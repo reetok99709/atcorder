@@ -67,13 +67,13 @@ void solve(long long N, std::vector<long long> A){
     rep(i, N) {
         ll a = A.at(i);
         m[0] = true;
-        rep(i, 4) {
-            if (m.at(i)) {
-                m[i]=false;
-                if (i+a>=4) {
+        rep(j, 4) {
+            if (m.at(j)) {
+                m[j]=false;
+                if (j+a>=4) {
                     P++;
                 } else {
-                    m[i + a] = true;
+                    m[j + a] = true;
                 }
             }
         }
