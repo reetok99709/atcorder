@@ -76,18 +76,20 @@ void solve(long long N, std::vector<long long> A){
         printm(m);
         m[0] = true;
         printm(m);
+        vector<bool> new_m(4,false);
         rep(j, 4) {
             cout << "MOVE TURN: "<<j<<endl;
             cout << "VAL: "<<m[j]<<endl;
             if (m.at(j)) {
-                m[j]=false;
+                new_m[j]=false;
                 if (j+a>=4) {
                     P++;
                 } else {
-                    m[j + a] = true;
+                    new_m[j + a] = true;
                 }
             }
         }
+        m = new_m;
         printm(m);
     }
     cout << P << endl;
