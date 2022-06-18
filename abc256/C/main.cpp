@@ -72,7 +72,7 @@ void solve(std::vector<long long> hi, std::vector<long long> wi){
                     ll h = hi[2]-g-i;
                     ll f = wi[2]-c-i;
                     ll e = hi[1]-d-f;
-                    bool flag = (b<=0 || d<=0 || h<=0 || f<=0 || e<=0);
+                    bool flag = (a<=0 || b<=0 || c<=0 || d<=0 || e<=0 || f<=0 || g<=0 || h<=0 || i<= 0);
 
                     if (flag)
                         ans--;
