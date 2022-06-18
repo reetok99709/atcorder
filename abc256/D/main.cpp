@@ -61,41 +61,30 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 }
 
 void remove_dup(set<pair<ll,ll>>& p) {
-    set<pair<ll,ll>> erase;
-    for (auto p1 : p) {
-        for (auto p2: p) {
-            if (p1.first<=p2.first && p1.second>=p2.first && p1.second<=p2.second) {
+    set<pair<ll,ll>> copied;
+    for (auto pr : p) {
+        copied.insert(pr);
+    }
+
+    for (auto p1 : copied) {
+        for (auto p2 : copied) {
+            if (p1.first <=p2.first && p1.second>=p2.first && p1.second<=p2.second) {
+                p.erase(p1);
+                p.erase(p2);
                 p.insert(make_pair(p1.first, p2.second));
             }
         }
     }
-    for (auto item: erase) {
-        p.erase(item);
-    }
 }
+
+
 
 
 void solve(long long N, std::vector<long long> L, std::vector<long long> R){
     set<pair<ll,ll>> p;
     rep(i, N) {
         auto p1 = make_pair(L[i], R[i]);
-        pair<ll,ll> erase;
-        for (auto p2: p) {
-            p.erase(erase);
-            if (p1.first<=p2.first && p1.second>=p2.first && p1.second<=p2.second) {
-                erase = p2;
-                p1 = make_pair(p1.first, p2.second);
-            } else if (p2.first<=p1.first && p2.second>=p1.first && p2.second<=p1.second) {
-                erase = p2;
-                p1 = make_pair(p2.first, p1.second);
-            } else if (p1.first<=p2.first && p2.second<=p1.second) {
-                erase = p2;
-            } else if (p2.first<=p1.first && p1.second<=p2.second) {
-                erase = p1;
-            }
-        }
-        p.erase(erase);
-        p.insert(p1);
+
     }
     for (auto pr : p) {
         cout << pr.first << " " << pr.second << endl;
