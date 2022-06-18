@@ -60,6 +60,30 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
     return pow(diff(p1.first, p2.first), 2)+pow(diff(p1.second, p2.second), 2);
 }
 
+void doo(pair<ll,ll> p1, set<pair<ll,ll>>& p) {
+    set<pair<ll,ll>> copied;
+    for (auto pr : p) {
+        copied.insert(pr);
+    }
+    for (auto p2 : copied) {
+        if (p1==p2)
+            continue;
+        if (p1.first <=p2.first && p1.second>=p2.first && p1.second<=p2.second) {
+            p.erase(p1);
+            p.erase(p2);
+            p.insert(make_pair(p1.first, p2.second));
+        } else if (p2.first<=p1.first && p2.second>=p1.first && p2.second<=p1.second) {
+            p.erase(p1);
+            p.erase(p2);
+            p.insert(make_pair(p2.first, p1.second));
+        } else if (p1.first<=p2.first && p2.second<=p1.second) {
+            p.erase(p2);
+        } else if (p2.first<=p1.first && p1.second<=p2.second) {
+            p.erase(p1);
+        }
+    }
+}
+
 void remove_dup(set<pair<ll,ll>>& p) {
     set<pair<ll,ll>> copied;
     for (auto pr : p) {
@@ -67,23 +91,7 @@ void remove_dup(set<pair<ll,ll>>& p) {
     }
 
     for (auto p1 : copied) {
-        for (auto p2 : copied) {
-            if (p1==p2)
-                continue;
-            if (p1.first <=p2.first && p1.second>=p2.first && p1.second<=p2.second) {
-                p.erase(p1);
-                p.erase(p2);
-                p.insert(make_pair(p1.first, p2.second));
-            } else if (p2.first<=p1.first && p2.second>=p1.first && p2.second<=p1.second) {
-                p.erase(p1);
-                p.erase(p2);
-                p.insert(make_pair(p2.first, p1.second));
-            } else if (p1.first<=p2.first && p2.second<=p1.second) {
-                p.erase(p2);
-            } else if (p2.first<=p1.first && p1.second<=p2.second) {
-                p.erase(p1);
-            }
-        }
+        doo(p1, p);
     }
 }
 
@@ -95,7 +103,8 @@ void solve(long long N, std::vector<long long> L, std::vector<long long> R){
     rep(i, N) {
         auto p1 = make_pair(L[i], R[i]);
         p.insert(p1);
-        remove_dup(p);
+        doo(p1, p);
+//        remove_dup(p);
     }
     remove_dup(p);
     for (auto pr : p) {
