@@ -79,12 +79,14 @@ void solve(long long N, std::vector<long long> L, std::vector<long long> R){
     set<pair<ll,ll>> p;
     rep(i, N) {
         auto p1 = make_pair(L[i], R[i]);
+        pair<ll,ll> erase;
         for (auto p2: p) {
+            p.erase(erase);
             if (p1.first<=p2.first && p1.second>=p2.first && p1.second<=p2.second) {
-                p.erase(p2);
+                erase = p2;
                 p1 = make_pair(p1.first, p2.second);
             } else if (p2.first<=p1.first && p2.second>=p1.first && p2.second<=p1.second) {
-                p.erase(p2);
+                erase = p2;
                 p1 = make_pair(p2.first, p1.second);
             }
         }
