@@ -90,6 +90,7 @@ void solve(long long N, std::vector<long long> L, std::vector<long long> R){
                 p1 = make_pair(p2.first, p1.second);
             }
         }
+        p.erase(erase);
         p.insert(p1);
     }
     for (auto pr : p) {
