@@ -81,7 +81,6 @@ void solve(long long N, std::vector<long long> A){
             cout << "MOVE TURN: "<<j<<endl;
             cout << "VAL: "<<m[j]<<endl;
             if (m.at(j)) {
-                new_m[j]=false;
                 if (j+a>=4) {
                     P++;
                 } else {
