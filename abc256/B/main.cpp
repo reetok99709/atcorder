@@ -62,6 +62,24 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 
 
 void solve(long long N, std::vector<long long> A){
+    ll P;
+    vector<bool> m(4,false);
+    rep(i, N) {
+        ll a = A.at(i);
+        m[0] = true;
+        rep(i, 4) {
+            if (m.at(i)) {
+                m[i]=false;
+                if (i+a>=4) {
+                    P++;
+                } else {
+                    m[i + a] = true;
+                }
+            }
+        }
+    }
+    cout << P << endl;
+
 }
 
 int main(){
