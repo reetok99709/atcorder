@@ -70,7 +70,7 @@ void solve(long long N, std::vector<long long> A){
     ll P = 0;
     vector<bool> m(4,false);
     rep(i, N) {
-        cout << "TURN "+i<<endl;
+        cout << "TURN "<< i<<endl;
         cout << "i: " << i << ", A[i]: "<<A[i] << endl;
         ll a = A.at(i);
         printm(m);
