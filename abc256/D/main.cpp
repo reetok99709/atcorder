@@ -72,6 +72,10 @@ void remove_dup(set<pair<ll,ll>>& p) {
                 p.erase(p1);
                 p.erase(p2);
                 p.insert(make_pair(p1.first, p2.second));
+            } else if (p2.first<=p1.first && p2.second>=p1.first && p2.second<=p1.second) {
+                p.erase(p1);
+                p.erase(p2);
+                p.insert(make_pair(p2.first, p1.second));
             }
         }
     }
