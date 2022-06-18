@@ -60,8 +60,27 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
     return pow(diff(p1.first, p2.first), 2)+pow(diff(p1.second, p2.second), 2);
 }
 
+void remove_dup(set<pair<ll,ll>>& p) {
+    for (auto p1 : p) {
+        for (auto p2: p) {
+            if (p1.first<=p2.first && p1.second>=p2.first && p1.second<=p2.second) {
+                p.erase(p2);
+                p1 = make_pair(p1.first, p2.second);
+            }
+        }
+    }
+}
+
 
 void solve(long long N, std::vector<long long> L, std::vector<long long> R){
+    set<pair<ll,ll>> p;
+    rep(i, N) {
+        p.insert(make_pair(L[i], R[i]));
+        remove_dup(p);
+    }
+    for (auto pr : p) {
+        cout << pr.first << " " << pr.second << endl;
+    }
 }
 
 int main(){
