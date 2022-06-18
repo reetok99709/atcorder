@@ -72,7 +72,7 @@ void solve(std::vector<long long> hi, std::vector<long long> wi){
                     ll h = hi[2]-g-i;
                     ll f = wi[2]-c-i;
                     ll e = hi[1]-d-f;
-                    if (b<0 && d<0 && h<0 && f<0 && e<0)
+                    if (b>=0 && d>=0 && h>=0 && f>=0 && e>=0)
                         if (a+b+c==hi[0] && d+e+f==hi[1] && g+h+i==hi[2] && a+d+g==wi[0] && b+e+h==wi[1] && c+f+i==wi[2])
                             ans++;
 //                    cout << a << " " << b << " " << c << endl;
