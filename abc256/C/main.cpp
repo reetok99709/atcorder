@@ -61,7 +61,24 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 }
 
 
-void solve(std::vector<long long> h, std::vector<long long> w){
+void solve(std::vector<long long> hi, std::vector<long long> wi){
+    ll ans = 0;
+    rep(a, 30) {
+        rep(c, 30) {
+            rep(g, 30) {
+                rep(i, 30) {
+                    ll b = hi[0]-a-c;
+                    ll d = wi[0]-a-g;
+                    ll h = hi[2]-g-i;
+                    ll f = wi[2]-c-i;
+                    ll e = hi[1]-d-f;
+                    if (a+b+c==hi[0] && d+e+f==hi[1] && g+h+i==hi[2] && a+d+g==wi[0] && b+e+h==wi[1] && c+f+i==wi[2])
+                        ans++;
+                }
+            }
+        }
+    }
+    cout << ans << endl;
 }
 
 int main(){
