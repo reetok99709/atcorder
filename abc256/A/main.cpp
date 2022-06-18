@@ -62,7 +62,7 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 
 
 void solve(long long N){
-    cout << setscientific(100000) <<  pow(2, N) << endl;
+    cout << (ll)pow(2, N) << endl;
 }
 
 int main(){
