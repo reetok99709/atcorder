@@ -68,7 +68,11 @@ void printm(vector<bool> m) {
 
 void solve(long long N, std::vector<long long> A){
     ll P = 0;
-    vector<bool> m(4,false);
+    vector<bool> m;
+    m.push_back(false);
+    m.push_back(false);
+    m.push_back(false);
+    m.push_back(false);
     rep(i, N) {
         cout << "TURN "<< i<<endl;
         cout << "i: " << i << ", A[i]: "<<A[i] << endl;
