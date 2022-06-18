@@ -68,6 +68,8 @@ void remove_dup(set<pair<ll,ll>>& p) {
 
     for (auto p1 : copied) {
         for (auto p2 : copied) {
+            if (p1==p2)
+                continue;
             if (p1.first <=p2.first && p1.second>=p2.first && p1.second<=p2.second) {
                 p.erase(p1);
                 p.erase(p2);
