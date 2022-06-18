@@ -74,9 +74,11 @@ void solve(std::vector<long long> hi, std::vector<long long> wi){
                     ll e = hi[1]-d-f;
                     if (a+b+c==hi[0] && d+e+f==hi[1] && g+h+i==hi[2] && a+d+g==wi[0] && b+e+h==wi[1] && c+f+i==wi[2])
                         ans++;
-                    cout << a << " " << b << " " << c << endl;
-                    cout << d << " " << e << " " << f << endl;
-                    cout << g << " " << h << " " << i << endl;
+//                    cout << a << " " << b << " " << c << endl;
+//                    cout << d << " " << e << " " << f << endl;
+//                    cout << g << " " << h << " " << i << endl;
+//                    cout << ans << endl;
+//                    cout << "-------" << endl;
                 }
             }
         }
