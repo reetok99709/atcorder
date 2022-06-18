@@ -91,6 +91,7 @@ void solve(long long N, std::vector<long long> L, std::vector<long long> R){
         p.insert(p1);
         remove_dup(p);
     }
+    remove_dup(p);
     for (auto pr : p) {
         cout << pr.first << " " << pr.second << endl;
     }
