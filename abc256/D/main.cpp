@@ -88,9 +88,9 @@ void solve(long long N, std::vector<long long> L, std::vector<long long> R){
             } else if (p2.first<=p1.first && p2.second>=p1.first && p2.second<=p1.second) {
                 erase = p2;
                 p1 = make_pair(p2.first, p1.second);
-            } else if (p1.first<=p2.first && p1.second<=p2.first) {
+            } else if (p1.first<=p2.first && p1.second<=p2.second) {
                 erase = p2;
-            } else if (p2.first<=p1.first && p2.second<=p1.first) {
+            } else if (p2.first<=p1.first && p2.second<=p1.second) {
                 erase = p1;
             }
         }
