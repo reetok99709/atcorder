@@ -61,13 +61,20 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 }
 
 void remove_dup(set<pair<ll,ll>>& p) {
+    set<pair<ll,ll>> new_p;
     for (auto p1 : p) {
+        bool remove = false;
         for (auto p2: p) {
             if (p1.first<=p2.first && p1.second>=p2.first && p1.second<=p2.second) {
-                p.erase(p2);
-                p1 = make_pair(p1.first, p2.second);
+                new_p.insert( make_pair(p1.first, p2.second) );
+                remove=true;
+            } else if (p2.first<=p1.first && p2.second>=p1.first && p2.second<=p1.second) {
+                new_p.insert(make_pair(p2.first, p1.second));
+                remove=true;
             }
         }
+        if (!remove)
+            new_p.insert(p1);
     }
 }
 
