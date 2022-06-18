@@ -61,8 +61,8 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 }
 
 void printm(vector<bool> m) {
-    cout << "Current: ";
-    output_vec(m);
+//    cout << "Current: ";
+//    output_vec(m);
 }
 
 
@@ -70,16 +70,16 @@ void solve(long long N, std::vector<long long> A){
     ll P = 0;
     vector<bool> m(4,false);
     rep(i, N) {
-        cout << "TURN "<< i<<endl;
-        cout << "i: " << i << ", A[i]: "<<A[i] << endl;
+//        cout << "TURN "<< i<<endl;
+//        cout << "i: " << i << ", A[i]: "<<A[i] << endl;
         ll a = A.at(i);
         printm(m);
         m[0] = true;
         printm(m);
         vector<bool> new_m(4,false);
         rep(j, 4) {
-            cout << "MOVE TURN: "<<j<<endl;
-            cout << "VAL: "<<m[j]<<endl;
+//            cout << "MOVE TURN: "<<j<<endl;
+//            cout << "VAL: "<<m[j]<<endl;
             if (m.at(j)) {
                 if (j+a>=4) {
                     P++;
