@@ -60,13 +60,22 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
     return pow(diff(p1.first, p2.first), 2)+pow(diff(p1.second, p2.second), 2);
 }
 
+void printm(vector<bool> m) {
+    cout << "Current: ";
+    output_vec(m);
+}
+
 
 void solve(long long N, std::vector<long long> A){
     ll P = 0;
     vector<bool> m(4,false);
     rep(i, N) {
+        cout << "TURN "+i<<endl;
+        cout << "i: " << i << ", A[i]: "<<A[i] << endl;
         ll a = A.at(i);
+        printm(m);
         m[0] = true;
+        printm(m);
         rep(j, 4) {
             if (m.at(j)) {
                 m[j]=false;
