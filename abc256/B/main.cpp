@@ -77,6 +77,8 @@ void solve(long long N, std::vector<long long> A){
         m[0] = true;
         printm(m);
         rep(j, 4) {
+            cout << "MOVE TURN: "<<j<<endl;
+            cout << "VAL: "<<m[j]<<endl;
             if (m.at(j)) {
                 m[j]=false;
                 if (j+a>=4) {
