@@ -76,6 +76,7 @@ void remove_dup(set<pair<ll,ll>>& p) {
         if (!remove)
             new_p.insert(p1);
     }
+    p = new_p;
 }
 
 
