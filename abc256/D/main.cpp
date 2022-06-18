@@ -78,8 +78,15 @@ void remove_dup(set<pair<ll,ll>>& p) {
 void solve(long long N, std::vector<long long> L, std::vector<long long> R){
     set<pair<ll,ll>> p;
     rep(i, N) {
-        p.insert(make_pair(L[i], R[i]));
-        remove_dup(p);
+        auto p1 = make_pair(L[i], R[i]);
+        for (auto p2: p) {
+            if (p1.first<=p2.first && p1.second>=p2.first && p1.second<=p2.second) {
+                p1 = make_pair(p1.first, p2.second);
+            } else if (p2.first<=p1.first && p2.second>=p1.first && p2.second<=p1.second) {
+                p1 = make_pair(p2.first, p1.second);
+            }
+        }
+        p.insert(p1);
     }
     for (auto pr : p) {
         cout << pr.first << " " << pr.second << endl;
