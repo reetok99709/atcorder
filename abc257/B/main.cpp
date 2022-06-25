@@ -62,26 +62,35 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 
 
 void solve(long long N, long long K, long long Q, std::vector<long long> A, std::vector<long long> L){
-    vector<ll> status(N, 0);
-    int i = 1;
-    for (const auto &item: A) {
-        status[item-1] = i;
-        i++;
+    vector<bool> status(N, false);
+    vector<ll> koma(K);
+    rep(i, K) {
+        auto item = A.at(i);
+        status[item - 1] = true;
+        koma[i] = item-1;
     }
-    for (const auto &item: L) {
-        if (item==K)
+//    output_vec(status);
+
+    rep(i, Q) {
+//        cout << "STEP " << i << " " << endl;
+        auto index = koma[L.at(i)-1];
+        if (index+1==N)
             continue;
-        auto ite = std::find(status.begin(), status.end(), item);
-        *ite = 0;
-        ++ite;
-        *ite = item;
+        if (status[index+1])
+            continue;
+        status[index]=false;
+        status[index+1]=true;
+        koma[L.at(i)-1]++;
+//        output_vec(status);
     }
-    int j = 1;
-    for (const auto &item: status) {
-        if (item!=0)
-            cout << j << " ";
-        j++;
+
+    rep(i, K) {
+        cout << koma[i]+1 << " ";
     }
+
+
+//    output_vec(status);
+
 }
 
 int main(){
