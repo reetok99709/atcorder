@@ -63,8 +63,8 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 
 void solve(long long N, long long X){
     ll a = (X-X%N)/N;
-    string str = "abcdefghijklmnopqrstuvwxyz";
-    cout << str.at(a) << endl;
+    string str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    cout << str.at(a-1) << endl;
 }
 
 int main(){
