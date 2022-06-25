@@ -62,6 +62,26 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 
 
 void solve(long long N, long long K, long long Q, std::vector<long long> A, std::vector<long long> L){
+    vector<ll> status(N, 0);
+    int i = 1;
+    for (const auto &item: A) {
+        status[item-1] = i;
+        i++;
+    }
+    for (const auto &item: L) {
+        if (item==K)
+            continue;
+        auto ite = std::find(status.begin(), status.end(), item);
+        *ite = 0;
+        ++ite;
+        *ite = item;
+    }
+    int j = 1;
+    for (const auto &item: status) {
+        if (item!=0)
+            cout << j << " " << endl;
+        j++;
+    }
 }
 
 int main(){
