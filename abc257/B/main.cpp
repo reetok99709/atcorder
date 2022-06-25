@@ -79,7 +79,7 @@ void solve(long long N, long long K, long long Q, std::vector<long long> A, std:
     int j = 1;
     for (const auto &item: status) {
         if (item!=0)
-            cout << j << " " << endl;
+            cout << j << " ";
         j++;
     }
 }
