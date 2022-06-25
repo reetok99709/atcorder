@@ -82,6 +82,8 @@ void solve(long long N, std::string S, std::vector<long long> W){
         rep(i, children.size()) {
             if (children[i] < item) {
                 cnt++;
+            } else {
+                return cnt;
             }
         }
         return cnt;
@@ -93,6 +95,8 @@ void solve(long long N, std::string S, std::vector<long long> W){
         rep(i, parents.size()) {
             if (parents[i] > item) {
                 cnt++;
+            } else {
+                return cnt;
             }
         }
         return cnt;
