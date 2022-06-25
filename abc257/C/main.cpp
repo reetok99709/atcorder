@@ -71,14 +71,50 @@ void solve(long long N, std::string S, std::vector<long long> W){
             parents.push_back(i);
         }
     }
-    // childrenのなかでXより小さい要素の数とparentsのなかでXより大きい要素の数の和の最大を求める
-    ll ans = 0;
-    rep(i, children.size()) {
-        ll c = children.at(i);
-        ll p = parents.at(i);
-        ans += W.at(c) + W.at(p);
+
+    sort(all(W));
+    sort(all(children));
+    sort(all(parents), std::greater<>());
+
+    // item未満の値の数を求める関数
+    auto count_less_than = [&](ll item) {
+        ll cnt = 0;
+        rep(i, children.size()) {
+            if (children[i] < item) {
+                cnt++;
+            }
+        }
+        return cnt;
+    };
+
+    // item以上の値の数を求める関数
+    auto count_greater_than = [&](ll item) {
+        ll cnt = 0;
+        rep(i, parents.size()) {
+            if (parents[i] > item) {
+                cnt++;
+            }
+        }
+        return cnt;
+    };
+
+    vector<ll> vec;
+
+    for (const auto &item: W) {
+        vec.push_back(
+            count_less_than(item) + count_greater_than(item)
+                );
     }
-    cout << ans << endl;
+
+    cout << *std::max_element(vec.begin(), vec.end()) << endl;
+
+
+
+
+
+
+
+
 }
 
 int main(){
