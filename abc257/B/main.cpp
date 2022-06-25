@@ -85,9 +85,9 @@ void solve(long long N, long long K, long long Q, std::vector<long long> A, std:
     }
 
     rep(i, K) {
-        cout << koma[i]+1 << " ";
+        koma[i]++;
     }
-cout << endl;
+    output_vec(koma);
 
 //    output_vec(status);
 
