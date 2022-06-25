@@ -62,6 +62,23 @@ ll calc_distance(pair<ll,ll> p1, pair<ll,ll> p2) {
 
 
 void solve(long long N, std::string S, std::vector<long long> W){
+    vector<ll> children;
+    vector<ll> parents;
+    rep(i, N) {
+        if (S[i] == 0) {
+            children.push_back(i);
+        } else {
+            parents.push_back(i);
+        }
+    }
+    // childrenのなかでXより小さい要素の数とparentsのなかでXより大きい要素の数の和の最大を求める
+    ll ans = 0;
+    rep(i, children.size()) {
+        ll c = children.at(i);
+        ll p = parents.at(i);
+        ans += W.at(c) + W.at(p);
+    }
+    cout << ans << endl;
 }
 
 int main(){
