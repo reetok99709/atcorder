@@ -105,6 +105,11 @@ void solve(long long N, std::string S, std::vector<long long> W){
     vector<ll> vec;
 
     for (const auto &item: W) {
+        cout << "----" << endl;
+        cout << item << endl;
+        cout << count_less_than(item) << endl;
+        cout << count_greater_than(item) << endl;
+
         vec.push_back(
             count_less_than(item) + count_greater_than(item)
                 );
